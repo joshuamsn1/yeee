@@ -43,8 +43,8 @@ def decrypt_with_aes(encrypted_data, password, salt):
     return decrypted_data.decode('utf-8')
 
 salt = b"Tandon" # Remember it should be a byte-object
-password = "jga9737@nyu.edu"
-input_string ="AlwaysWatching"
+password = b"jga9737@nyu.edu"
+input_string =b"AlwaysWatching"
 
 encrypted_value = encrypt_with_aes(input_string, password, salt) # test function
 decrypted_value = decrypt_with_aes(encrypted_value, password, salt)  # test function
