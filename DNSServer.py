@@ -39,12 +39,12 @@ def encrypt_with_aes(input_string, password, salt):
 def decrypt_with_aes(encrypted_data, password, salt):
     key = generate_aes_key(password, salt)
     f = Fernet(key)
-    decrypted_data = f.encrypt(encrypted_data) #call the Fernet decrypt method
+    decrypted_data = f.decrypt(encrypted_data) #call the Fernet decrypt method
     return decrypted_data.decode('utf-8')
 
-salt = b'Tandon' # Remember it should be a byte-object
-password = 'jga9737@nyu.edu'
-input_string ='AlwaysWatching'
+salt = b"Tandon" # Remember it should be a byte-object
+password = "jga9737@nyu.edu"
+input_string ="AlwaysWatching"
 
 encrypted_value = encrypt_with_aes(input_string, password, salt) # test function
 decrypted_value = decrypt_with_aes(encrypted_value, password, salt)  # test function
