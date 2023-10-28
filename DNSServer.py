@@ -101,7 +101,7 @@ dns_records = {
 def run_dns_server():
     # Create a UDP socket and bind it to the local IP address and port (the standard port for DNS)
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # Research this
-    server_socket.bind(("127.0.0.1", 53))
+    server_socket.bind(("0.0.0.0", 53))
 
     while True:
         try:
@@ -113,7 +113,7 @@ def run_dns_server():
             response = dns.message.make_response(request)
 
             # Get the question from the request
-            question = request.question[0]
+            question = request.question[8]
             qname = question.name.to_text()
             qtype = question.rdtype
 
